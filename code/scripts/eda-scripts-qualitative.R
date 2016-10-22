@@ -1,5 +1,5 @@
 #Read data
-source("../functions/eda-script-frequency.R")
+source("../functions/eda-functions.R")
 dat<-read.csv("../data/Credit.csv",row.names=1)
 summary(dat)
 names(dat)
@@ -12,7 +12,7 @@ sink("../../data/eda-output-qualitative.txt")
 print("Frequencies statistics of Qualitative Variables")
 print("\n\n")
 qual-summary(sub-data)
-cat("\n\n)
+cat("\n\n")
 
 #Create anova
 print("Anova between Balance and other qualitative variables")

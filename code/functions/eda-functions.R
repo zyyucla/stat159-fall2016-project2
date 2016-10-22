@@ -13,3 +13,13 @@ quant-summary<-function(x){
    print(stats-table,caption.placement="top")
   }
 }
+
+#description: computes the frequency summary for quantitative variables
+#input: the object from  "Credit.csv" set
+#output: frequency summary table of all the qualitative variables
+
+freq-summary<function(x){
+   
+   
+   
+}

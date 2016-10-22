@@ -1,0 +1,22 @@
+#Read data
+dat<-read.csv("../data/Credit.csv",row.names=1)
+summary(dat)
+names(dat)
+str(dat)
+
+#Ouput table of frequencies to file
+
+
+
+
+#Create anova
+
+
+
+
+#Conditional Boxplots
+
+
+
+
+dev.off()

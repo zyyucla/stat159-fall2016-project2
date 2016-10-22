@@ -1,0 +1,11 @@
+
+
+####**Abstract**
+
+The aim of this report is to perform a predictive modeling process applied on the data set named _Credit_. Specifically, the 
+project performs exploratory data analysis, pre-modeling data processing and builds multiple linear regression models to predict 
+the variable **Balance** in terms of ten predictors such as **Income**, **Age**, **Education**, **Gender**, **Ethinicity** etc. The project
+is largely based on chapter 6: _Linear Model Selection and Regularization_ from the book **An Introduction to Statistical Learning** 
+by James et al. 
+
+<hr>

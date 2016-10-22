@@ -46,7 +46,10 @@ hist(dat$Age,main="Histogram of Age", xlab="Age")
 png("../../images/histogram-education.png")
 hist(dat$Education,main="Histogram of Education", xlab="Education")
 
+#Create boxplot of the variables
+boxplot(Balance~Income+Limit+Rating+Cards+Age+Education,dat,las=2)
+
 #Create scatterplot matrix 
 png("../../images/scatterplot-matrix.png")
-pairs(~+dat$Balance+dat$Income+dat$Limit+dat$Rating+dat$Cards+dat$Age+dat$Education+dat$Income)
+pairs(~+dat$Balance+dat$Income+dat$Limit+dat$Rating+dat$Cards+dat$Age+dat$Education)
 dev.off()

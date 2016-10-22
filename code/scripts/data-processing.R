@@ -8,5 +8,5 @@ new_credit <- cbind(temp_credit[ ,-1], Balance =dat$Balance)
 #scaling and centering
 scaled_credit <- scale(new_credit, center = TRUE, scale = TRUE)
 # export scaled data
-write.csv(scaled_credit, file = "Scaled-credit.csv")
+write.csv(scaled_credit, file = "../../data/Scaled-credit.csv")
 

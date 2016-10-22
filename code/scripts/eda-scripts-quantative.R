@@ -6,15 +6,16 @@ str(dat)
 summary(dat)
 
 #Output quantative results to the file
+#subset only quantative parts of the data
+sub-dat<dat[,2:7]
 sink("../../data/eda-output-quantative.txt")
 print ('Summary Statistics of Quantative Variables')
 cat('\n')
-quant-summary(dat)
+quant-summary(sub-dat)
 cat("\n\n")
 print("Correlation Matrix")
 cat('\n')
-#subset only quantative variable part for matrix correlation 
-sub-dat<dat[,2:7]
+#matrix correlation 
 cor(sub-dat)
 sink()
 

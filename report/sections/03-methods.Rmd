@@ -1,0 +1,13 @@
+####**Methods**
+Shrinkage methods means fitting a model involving all p predictors with the estimated coefficients shrunken towards zero relative to the least squares estimates, which has the effect of reducing variance. 
+
+For Ridge regression, we use coefficient estimates values that minimizes RSS with the following equation:
+    ![](https://raw.githubusercontent.com/zyyucla/stat159-fall2016-project1/master/images/Ridge%20Regression.png)
+
+As for Lasso regression, we use the following equation that also shrinks the coefficient estimates towards zero:
+     ![](https://raw.githubusercontent.com/zyyucla/stat159-fall2016-project1/master/images/Lasso%20Regression.png)
+
+Dimension reduction methods means projecting the p predictors into a M-dimensional subspace, where M<p. Then these M projections are used as predictors to fit a linear regression model by least squares. 
+
+For Principle Components regression is a technique reducing the dimension of a n × p data matrix X which  involves identifying linear combinations, or directions, that best represent the predictors X1,...,Xp. As for Partial Least square, it's a supervised alternative to PCR in that it attempts to
+find directions that help explain both the response and the predictors.

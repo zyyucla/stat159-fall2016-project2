@@ -1,0 +1,3 @@
+####**Data**
+We will be working with the [Credit dataset](http://www-bcf.usc.edu/~gareth/ISL/Credit.csv).  This data set holds credit information of 400 different people for 10 different variables/predictors. 10 variables can be divided into two categories: _quantitative_ and _qualitative_. Quantitative variables include Income, limit, Rating, Cards, Age and Education. Qualitative/categorical (only can take certain values) variables include Gender, Students(yes/no), Married(yes/no) and Ethnicity.
+

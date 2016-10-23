@@ -1,0 +1,6 @@
+####**Introduction**
+The overall goal of this collaborative project is to extend the linear model framework used in previous homework.  We used the data set _Credit_ as an example to discuss some ways in which the simple linear model can be improved, by replacing plain least squares fitting with some alternative fitting procedures.  With alternative fitting procedures we expect to yield better prediction accuracy and model  interpretability.
+
+Two common alternatives are shrinkage and dimension reduction methods. Shrinkage includes Ridge and Lasso regression and dimension reduction includes Principle Components and Partial Least Square regressions, which will both be discussed more in details in the **Method** section.
+
+In this report, we first performed exploratory data analysis, then used all four regression methods predict the variable **Balance** in terms of ten predictors such as **Income**, **Age**, **Education**, **Gender**, **Ethnicity** etc. Advantages and disadvantages of each model are also discussed. 

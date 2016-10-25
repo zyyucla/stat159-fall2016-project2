@@ -1,12 +1,12 @@
-##Read data and inspect data frame
-source("../functions/eda-functions.R")
-dat<-read.csv("../../data/Advertising.csv",row.names=1)
+#Read data and inspect data frame
+#source("../functions/eda-functions.R")
+dat<-read.csv("../../data/Credit.csv",row.names=1)
 head(dat)
 str(dat)
 summary(dat)
 
 #Output quantative results to the file
-sub_dat<dat[,2:7]
+sub_dat<-dat[,1:6]
 sink("../../data/eda-output-quantative.txt")
 print ('Summary Statistics of Quantative Variables')
 summary(sub_dat)
@@ -18,7 +18,7 @@ cor(sub_dat)
 sink()
 
 #save correlation matrix into binary file
-matrix<-as.data.frame(cor(sub-dat))
+matrix<-as.data.frame(cor(sub_dat))
 save(matrix,file="../../data/correlation-matrix.RData")
 
 
@@ -44,10 +44,26 @@ hist(dat$Age,main="Histogram of Age", xlab="Age")
 png("../../images/histogram-education.png")
 hist(dat$Education,main="Histogram of Education", xlab="Education")
 
-#Create boxplot of the variables
-boxplot(Balance~Income+Limit+Rating+Cards+Age+Education,dat,las=2)
+#Create boxplot of all the variables
+#png("../../images/boxplot-income.png")
+#boxplot(Balance~Income,dat,las=2)
+
+#png("../../images/boxplot-limit.png")
+#boxplot(Balance~Limit,dat,las=2)
+
+#png("../../images/boxplot-age.png")
+#boxplot(Balance~Age,dat,las=2)
+
+#png("../../images/boxplot-education.png")
+#boxplot(Balance~Education,dat,las=2)
+
+#png("../../images/boxplot-rating.png")
+#boxplot(Balance~Rating,dat,las=2)
+
+#png("../../images/boxplot-cards.png")
+#boxplot(Balance~Cards,dat,las=2)
 
 #Create scatterplot matrix 
 png("../../images/scatterplot-matrix.png")
-pairs(~+dat$Balance+dat$Income+dat$Limit+dat$Rating+dat$Cards+dat$Age+dat$Education)
+pairs(~Balance+Income+Limit+Rating+Cards+Age+Education,data=dat, main="Scatterplot Matrix")
 dev.off()

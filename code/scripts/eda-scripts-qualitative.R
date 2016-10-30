@@ -1,22 +1,29 @@
 #Read data
 library(lattice)
 source("../functions/eda-functions.R")
-dat<-read.csv("../data/Credit.csv",row.names=1)
+dat<-read.csv("../../data/Credit.csv",row.names=1)
 summary(dat)
 names(dat)
 str(dat)
 
 #Get qualitative subset of data
-sub-data<-dat[,8:11]
+sub_data<-dat[,7:11]
 #Output frequencies result to file
 sink("../../data/eda-output-qualitative.txt")
 print("Frequencies statistics of Qualitative Variables")
-print("\n\n")
-qual-summary(sub-data)
 cat("\n\n")
+freq_summary(sub_data$Married)
+cat("\n")
+freq_summary(sub_data$Gender)
+cat("\n")
+freq_summary(sub_data$Student)
+cat("\n")
+freq_summary(sub_data$Ethnicity)
+cat("\n\n")
+
 #Create anova
 print("Anova between Balance and other qualitative variables")
-print("\n\n")
+cat("\n\n")
 fit<-aov(Balance~Gender+Student+Married+Education, dat)
 print(fit)
 sink()
@@ -40,14 +47,14 @@ boxplot(Balance~Ethnicity,dat, main="Boxplot of Balance on Ethnicity", col="ligh
 
 #Barchart of frequency counts
 png("../../images/barchart-frequency-gender.png")
-barchart(Gender,dat, main="Frequency count of Gender",xlab="Gender",ylab="Counts")
+barchart(Gender,data=dat, main="Frequency count of Gender",xlab="Gender",ylab="Counts")
 
 png("../../images/barchart-frequency-student.png")
-barchart(Student,dat, main="Frequency count of Student",xlab="Student",ylab="Counts")
+barchart(Student,data=dat, main="Frequency count of Student",xlab="Student",ylab="Counts")
 
 png("../../images/barchart-frequency-married.png")
-barchart(Married,dat, main="Frequency count of Married",xlab="Married",ylab="Counts")
+barchart(Married,data=dat, main="Frequency count of Married",xlab="Married",ylab="Counts")
 
 png("../../images/barchart-frequency-ethnicity.png")
-barchart(Ethnicity,dat, main="Frequency count of Ethnicity",xlab="Ethnicity",ylab="Counts")
+barchart(Ethnicity,data=dat, main="Frequency count of Ethnicity",xlab="Ethnicity",ylab="Counts")
 dev.off()

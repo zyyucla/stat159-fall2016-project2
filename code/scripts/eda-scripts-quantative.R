@@ -11,6 +11,17 @@ sink("../../data/eda-output-quantative.txt")
 print ('Summary Statistics of Quantative Variables')
 summary(sub_dat)
 cat("\n\n")
+
+print("Standard Deviation and IQR of Variables")
+cat("\n")
+stats<-data.frame(Names=c("Age","Cards","Education"
+,"Income","Limit","Rating"),STD=c(sd(dat$Age),sd(dat$Cards),sd(dat$Education),sd(dat$Income),sd(dat$Limit),sd
+(dat$Rating)),IQR=c(IQR(dat$Age),IQR(dat$Cards),IQR(dat$Education),IQR(dat$Income),IQR(dat$Limit),IQR(dat$Rating))
+)
+print.data.frame(stats)
+cat("\n\n")
+
+#Correlation Matrix
 print("Correlation Matrix")
 cat('\n')
 #matrix correlation 
@@ -45,8 +56,8 @@ png("../../images/histogram-education.png")
 hist(dat$Education,main="Histogram of Education", xlab="Education")
 
 #Create boxplot of all the variables
-#png("../../images/boxplot-income.png")
-#boxplot(Balance~Income,dat,las=2)
+png("../../images/boxplot-income.png")
+boxplot(Balance~Income,dat,las=2)
 
 #png("../../images/boxplot-limit.png")
 #boxplot(Balance~Limit,dat,las=2)

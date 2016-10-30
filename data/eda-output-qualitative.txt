@@ -1,0 +1,43 @@
+[1] "Frequencies statistics of Qualitative Variables"
+
+
+[1] "sub_data$Married"
+
+    rel_frequency counts
+No         0.3875    155
+Yes        0.6125    245
+
+[1] "sub_data$Gender"
+
+       rel_frequency counts
+Female        0.5175    207
+ Male         0.4825    193
+
+[1] "sub_data$Student"
+
+    rel_frequency counts
+No            0.9    360
+Yes           0.1     40
+
+[1] "sub_data$Ethnicity"
+
+                 rel_frequency counts
+African American        0.2475     99
+Asian                   0.2550    102
+Caucasian               0.4975    199
+
+
+[1] "Anova between Balance and other qualitative variables"
+
+
+Call:
+   aov(formula = Balance ~ Gender + Student + Married + Education, 
+    data = dat)
+
+Terms:
+                  Gender  Student  Married Education Residuals
+Sum of Squares     38892  5623889    16976     64057  78596098
+Deg. of Freedom        1        1        1         1       395
+
+Residual standard error: 446.0689
+Estimated effects may be unbalanced

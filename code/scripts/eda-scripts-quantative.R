@@ -57,7 +57,7 @@ hist(dat$Education,main="Histogram of Education", xlab="Education")
 
 #Create boxplot of all the variables
 png("../../images/boxplot-income.png")
-boxplot(Balance~Income,data=dat,main="Boxplot of Income",xlab="Income",ylab="Balance",col="lightblue",las=2)
+boxplot(1:100,Balance~Income,data=dat,main="Boxplot of Income",xlab="Income",ylab="Balance",col="lightblue",las=2)
 
 png("../../images/boxplot-limit.png")
 boxplot(Balance~Limit,data=dat,main="Boxplot of Limit",xlab="Limit",ylab="Balance",col="lightblue",las=2)

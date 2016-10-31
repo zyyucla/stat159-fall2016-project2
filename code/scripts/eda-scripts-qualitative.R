@@ -47,14 +47,14 @@ boxplot(Balance~Ethnicity,dat, main="Boxplot of Balance on Ethnicity", col="ligh
 
 #Barchart of frequency counts
 png("../../images/barchart-frequency-gender.png")
-barchart(Gender,data=dat, main="Frequency count of Gender",xlab="Gender",ylab="Counts")
+barchart(dat$Gender, main="Frequency count of Gender",xlab="Gender",ylab="Counts",col="lightblue")
 
 png("../../images/barchart-frequency-student.png")
-barchart(Student,data=dat, main="Frequency count of Student",xlab="Student",ylab="Counts")
+barchart(dat$Student, main="Frequency count of Student",xlab="Student",ylab="Counts",col="lightblue")
 
 png("../../images/barchart-frequency-married.png")
-barchart(Married,data=dat, main="Frequency count of Married",xlab="Married",ylab="Counts")
+barchart(dat$Married, main="Frequency count of Married",xlab="Married",ylab="Counts",col="lightblue")
 
 png("../../images/barchart-frequency-ethnicity.png")
-barchart(Ethnicity,data=dat, main="Frequency count of Ethnicity",xlab="Ethnicity",ylab="Counts")
+barchart(dat$Ethnicity, main="Frequency count of Ethnicity",xlab="Ethnicity",ylab="Counts",col="lightblue")
 dev.off()

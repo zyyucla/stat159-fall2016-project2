@@ -57,22 +57,22 @@ hist(dat$Education,main="Histogram of Education", xlab="Education")
 
 #Create boxplot of all the variables
 png("../../images/boxplot-income.png")
-boxplot(Balance~Income,dat,las=2)
+boxplot(Balance~Income,data=dat,main="Boxplot of Income",xlab="Income",ylab="Balance",col="lightblue",las=2)
 
-#png("../../images/boxplot-limit.png")
-#boxplot(Balance~Limit,dat,las=2)
+png("../../images/boxplot-limit.png")
+boxplot(Balance~Limit,data=dat,main="Boxplot of Limit",xlab="Limit",ylab="Balance",col="lightblue",las=2)
 
-#png("../../images/boxplot-age.png")
-#boxplot(Balance~Age,dat,las=2)
+png("../../images/boxplot-age.png")
+boxplot(Balance~Age,data=dat,main="Boxplot of Age",xlab="Age",ylab="Balance",col="lightblue",las=2)
 
-#png("../../images/boxplot-education.png")
-#boxplot(Balance~Education,dat,las=2)
+png("../../images/boxplot-education.png")
+boxplot(Balance~Education,data=dat,main="Boxplot of Education",xlab="Education",ylab="Balance",col="lightblue",las=2)
 
-#png("../../images/boxplot-rating.png")
-#boxplot(Balance~Rating,dat,las=2)
+png("../../images/boxplot-rating.png")
+boxplot(Balance~Rating,data=dat,main="Boxplot of Rating",xlab="Rating",ylab="Balance",col="lightblue",las=2)
 
-#png("../../images/boxplot-cards.png")
-#boxplot(Balance~Cards,dat,las=2)
+png("../../images/boxplot-cards.png")
+boxplot(Balance~Cards,data=dat,main="Boxplot of Cards",xlab="Cards",ylab="Balance",col="lightblue",las=2)
 
 #Create scatterplot matrix 
 png("../../images/scatterplot-matrix.png")

@@ -24,5 +24,7 @@ report:
 slides:
 
 session:
+  bash session.sh
 
 clean:
+  rm -f report/report.rmd report/report.pdf

@@ -9,3 +9,11 @@ OLS <- lm(Balance~., data=data.train)
 OLS.summ <- summary(OLS)
 
 save(OLS, OLS.summ, file = "data/models/OLS.RData")
+
+
+OLS.pred <- predict(OLS, newdata = data.test)
+
+OLS.mse <- mean((OLS.pred - data.test$Balance)^2)
+
+
+save(OLS.mse, file = "data/models/OLS-outputs.RData")  

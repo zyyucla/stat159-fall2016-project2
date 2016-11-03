@@ -12,8 +12,6 @@ set.seed(155)
 ridge.cv <- cv.glmnet(model.matrix(Balance ~ ., data.train), Balance, alpha = 0, 
           intercept = FALSE, standardize = FALSE, lambda = grid)
 
-#plot(ridge.cv)
-
 save(ridge.cv, file = "data/models/ridge.RData")
 
 

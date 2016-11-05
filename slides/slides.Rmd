@@ -53,10 +53,14 @@ Of course, not every predictor is of equivalent predictive power. And fitting al
 
 ##Dimension Reduction
 
-Another way of not treating all of the predictors the same way is to use methods of Dimension Reduction. Both Principal Component Regression and Partial Least Squares regression serve to 
+Another way of not treating all of the predictors the same way is to use methods of Dimension Reduction. Both Principal Component Regression and Partial Least Squares regression serve to create "proxy" components which represent the predictors in a lower-dimensional space. PCR is unsupervised, that is, it merely creates components which summarize the predictors effectively. PLS is supervised, so it keeps the response variable in mind when creating components. 
 
+##Results
 
-```{r, echo=FALSE}
-plot(cars)
-```
+Unfortunately, the results in this case weren't too profound. We find that PCR and PLS actually suggest to not reduce our dimensions at all - instead, suggesting that we keep all 11 predictors in as components! In essence, this merely creates a set of components equivalent to the predictors: i.e., the standard multiple linear regression line. So, PCR and PLS aren't too interesting. It IS interesting that they happened to deem this as the best number of components, and perhaps this was due to a faulty metric of 'best', but the results are rather dissapointing.
+
+##Ridge and Lasso
+
+These two regressions actually offered SLIGHT predictive improvement over our OLS/PCR/PLS regression functions. The Ridge, additionally, offered the only model which actually supplied coefficients that were relatively different at a couple points. The Lasso, on the other hand, reduced a few of the coefficients that were near-zero to zero.
+
 

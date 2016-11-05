@@ -1,3 +1,96 @@
----
-output: pdf_document
----
+
+####**Results**
+
+We have our 5 models. First, let's look at the coefficients our various models came up with and see how they compare. This should be interesting, as we're examining both shrinkage and dimension reduction methods - the lasso regression may have some coefficients that are completely 0. It should be noted that the pls package by default does not include intercepts in the pcr and pls regressions, but with a few slight tweaks of code the intercepts can be included as well. 
+
+```{r include=FALSE, cache=FALSE}
+
+load(file = "../../data/models/OLS-outputs.RData")
+load(file = "../../data/models/ridge-outputs.RData")
+load(file = "../../data/models/lasso-outputs.RData")
+load(file = "../../data/models/pcr-outputs.RData")
+load(file = "../../data/models/pls-outputs.RData")
+
+require(xtable)
+
+coeff.table <- as.data.frame(cbind(OLS.coeffs, ridge.coeffs, lasso.coeffs, pcr.coeffs, pls.coeffs))
+
+colnames(coeff.table) <- c("OLS", "Ridge", "Lasso", "PCR", "PLS")
+coeff.table <- round(coeff.table, 5)
+
+c.table <- xtable(coeff.table, caption = "Coefficient table of the 5 models", digits = 5)
+
+```
+
+```{r results='asis', echo=FALSE, cache=FALSE}
+print(c.table, comment = FALSE, caption.placement = 'top', table.placement = '!h')
+
+```
+
+We see that the fuss over intercepts isn't too crucial, though, as they're all 0 (Not to imply that an NA value == 0, but it makes a lot of sense given that our data is standardized!) Overall, most of the coefficients are extremely similar across the models, while the lasso regression seems to have dropped many of the smaller ones. 
+
+A careful observer will note that PCR, PLS, and OLS are suspiciously similar - why might this be? Perhaps due to a faulty parameter minimization criterion, we selected the 'best' PCR and PLS models as those with 11 components. But, we have 11 predictors! Thus, the "components" for these 2 models simply were the predictors themselves, with no proxy representation by components at all! Maybe this data was particularly linear, or standardized data is less relevant for PCR/PLS analysis. I don't know enough to draw much from this result, but it is definitely interesting that for both PLS and PCR, the components that "best" represented our predictors were just the predictors themselves! In all likelihood, though, this was due to an erroneous metric of what a "best model" was in each of these shrinkage methods. We merely used the min of $validation$PRESS, and I quite frankly have not read enough of the pls documentation to conclude with confidence that this was a reductionist approach.
+
+So, although we used the pls package and carried out an entirely different procedure than the simple lm() function for OLS, it seems that we ended up with 3 standard multiple linear regression models. Oh well! At least the lasso and ridge regressions are different!
+
+To visualize the coefficients in a different way, we can plot their respective coefficient values on a line graph. We don't plot PCR and PLS as they are the same as OLS, so they would only serve to clutter up the visualization.
+
+The Ridge Regression is Red, the OLS Purple, and the Lasso, Green.
+
+
+```{r results = 'asis', echo = FALSE, cache = FALSE}
+
+total.range <- range(c(range(OLS.coeffs),range(ridge.coeffs),range(lasso.coeffs),range(pcr.coeffs),range(pls.coeffs)))
+
+rownames(pcr.coeffs) <- rownames(lasso.coeffs)
+rownames(pls.coeffs) <- rownames(lasso.coeffs)
+
+rnames <- rownames(lasso.coeffs)
+rnames[7] <- "Edu"
+rnames[8] <- "GendMale"
+rnames[11] <- "EthnAsn"
+rnames[12] <- "EthnCauc"
+
+plot(c(1,12), total.range, type = "n", xaxt = "n", las = 2,      
+     main = "Line Graph of Coefficients by Model", 
+     xlab = "Predictors", ylab = "Coefficient vales")
+
+axis(1, at=1:12, labels = rnames, las = 2)
+
+#plot(pcr.coeffs, las = 2, type = "o", col = "red", lwd = 2,
+#     main = "Line Graph of Coefficients by Model", 
+#     xlab = "Predictors", ylab = "Coefficient vales")
+
+lines(OLS.coeffs, lwd = 1, type = "o", col = "purple")
+lines(ridge.coeffs, lwd = 1, type = "o", col = "red")
+lines(lasso.coeffs, lwd = 1, type = "o", col = "green")
+
+legend(.8,12,legend = 4)
+```
+  
+
+We see that at most of the coefficients, all our models are incredibly similar. The ridge regression offers the only major deviations, at Limit and Rating. Additionally, some of the coefficients very close to 0 in the other two models are actually made 0 in the lasso model. But truthfully, having models so similar is not the most interesting result!
+
+
+To actually compare our models, though, we can check the different MSEs that each model exhibited when checked against our test data set, as each model was fit on a smaller training subset to be able to test prediction strength in this very way! Even though our MSE for OLS, PCR, and PLS may turn out very similar, it's still worth examining the MSEs across the models. It is again worth noting that we only carried out a test/training set procedure over our non-OLS methods, so we have no OLS MSE as we simply fit the OLS to the entire data set. 
+
+
+```{r results='asis', echo=FALSE, cache=FALSE}
+
+mse.vect <- as.data.frame(c(ridge.mse, lasso.mse, pcr.mse, pls.mse))
+
+rownames(mse.vect) <- c("Ridge", "Lasso", "PCR", "PLS")
+colnames(mse.vect) <- c("MSEs")
+
+mse.table <- xtable(mse.vect, caption = "MSE table of the 4 advanced models", digits = 5)
+
+print(mse.table, comment = FALSE, caption.placement = 'top', table.placement = '!h')
+
+```
+
+
+Logically, our PLS and PCR regressions give the same output. However, in an interesting turn, our ridge and lasso regressions, which actually were different from the OLS, actually perform better! Perhaps all this model fitting wasn't for naught! The MSE values are quite small all around due to the small values of the data that we're working with, but it the lasso and ridge still offer a noticable improvement in predictive power, as deemed by our test data! 
+
+
+
+

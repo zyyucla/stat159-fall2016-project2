@@ -7,11 +7,11 @@ We begin by running the ridge and lasso regressions on the data. To do this, we 
 
 ```{r include = FALSE, cache=FALSE}
 
-#load(file = "../../data/models/OLS-outputs.RData")
-load(file = "../../data/models/ridge-outputs.RData")
-load(file = "../../data/models/lasso-outputs.RData")
-load(file = "../../data/models/pcr-outputs.RData")
-load(file = "../../data/models/pls-outputs.RData")
+#load(file = "data/models/OLS-outputs.RData")
+load(file = "data/models/ridge-outputs.RData")
+load(file = "data/models/lasso-outputs.RData")
+load(file = "data/models/pcr-outputs.RData")
+load(file = "data/models/pls-outputs.RData")
 
 ```
 

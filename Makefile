@@ -43,6 +43,7 @@ report:
 
 
 slides:
+	cd slides
 	Rscript -e "library(rmarkdown); render('slides.Rmd')"
 	
 session:

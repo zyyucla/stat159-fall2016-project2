@@ -1,6 +1,7 @@
 
 #Lasso Regression Model Selection
 
+require(glmnet)
 load("data/models/lasso.RData")
 
 png('images/models/lasso-plotted-lambdas.png')
@@ -13,7 +14,7 @@ lasso.lamb <- glmnet(model.matrix(Balance ~ ., data.train),
                      Balance, alpha = 1, intercept = FALSE, standardize = FALSE,
                      lambda = lasso.cv$lambda.min)
 
-lasso.pred <- predict(lasso.lamb, 
+lasso.pred <- predict(lasso.lamb,
                       newx = model.matrix(data.test$Balance ~., data.test))
 
 
@@ -26,5 +27,7 @@ lasso.final <- glmnet(model.matrix(data$Balance ~ ., data),
                       data$Balance, alpha = 1, intercept = FALSE, standardize = FALSE,
                       lambda = lasso.cv$lambda.min)
 
-save(lasso.mse, lasso.final, file = "data/models/lasso-outputs.RData")
+lasso.coeffs <- as.matrix(lasso.final$beta)
+
+save(lasso.mse, lasso.final, lasso.coeffs, file = "data/models/lasso-outputs.RData")
 

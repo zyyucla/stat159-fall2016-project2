@@ -15,5 +15,7 @@ OLS.pred <- predict(OLS, newdata = data.test)
 
 OLS.mse <- mean((OLS.pred - data.test$Balance)^2)
 
+OLS.coeffs <- as.matrix(OLS.summ$coefficients[,1])
 
-save(OLS.mse, file = "data/models/OLS-outputs.RData")  
+
+save(OLS.mse, OLS.coeffs, file = "data/models/OLS-outputs.RData")

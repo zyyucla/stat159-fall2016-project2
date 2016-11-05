@@ -1,6 +1,7 @@
 
 #Ridge Regression Model Selection
 
+require(glmnet)
 load("data/models/ridge.RData")
 
 png('images/models/ridge-plotted-lambdas.png')
@@ -13,7 +14,7 @@ ridge.lamb <- glmnet(model.matrix(Balance ~ ., data.train),
                      Balance, alpha = 0, intercept = FALSE, standardize = FALSE,
                      lambda = ridge.cv$lambda.min)
 
-ridge.pred <- predict(ridge.lamb, 
+ridge.pred <- predict(ridge.lamb,
                       newx = model.matrix(data.test$Balance ~., data.test))
 
 #Tested to see if this slightly different method of prediction gave a substantially different
@@ -37,5 +38,8 @@ ridge.final <- glmnet(model.matrix(data$Balance ~ ., data),
                      data$Balance, alpha = 0, intercept = FALSE, standardize = FALSE,
                      lambda = ridge.cv$lambda.min)
 
-save(ridge.mse, ridge.final, file = "data/models/ridge-outputs.RData")
+ridge.coeffs <- as.matrix(ridge.final$beta)
+
+save(ridge.mse, ridge.final, ridge.coeffs, file = "data/models/ridge-outputs.RData")
+
 

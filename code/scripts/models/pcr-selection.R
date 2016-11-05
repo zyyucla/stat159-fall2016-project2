@@ -29,5 +29,5 @@ pcr.final <- pcr(data$Balance~., data = data, ncomp = pcr.index)
 
 pcr.coeffs <- as.matrix(pcr.final$coefficients[,,pcr.index])
 
-save(pcr.mse, pcr.final, pcr.coeffs, file = "data/models/pcr-outputs.RData")
+save(pcr.mse, pcr.final, pcr.coeffs, pcr.index, file = "data/models/pcr-outputs.RData")
 

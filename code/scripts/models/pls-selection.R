@@ -24,9 +24,9 @@ pls.mse <- mean((pls.pred - data.test$Balance)^2)
 data <- read.csv("data/Scaled-credit.csv", header = TRUE)
 data <- data[,3:14]
 
-pls.final <- plsr(data$Balance~., data = data, ncomp = pcr.index)
+pls.final <- plsr(data$Balance~., data = data, ncomp = pls.index)
 
 pls.coeffs <- as.matrix(pls.final$coefficients[,,pls.index])
 
-save(pls.mse, pls.final, pls.coeffs, file = "data/models/pls-outputs.RData")
+save(pls.mse, pls.final, pls.coeffs, pls.index, file = "data/models/pls-outputs.RData")
 

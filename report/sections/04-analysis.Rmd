@@ -1,0 +1,32 @@
+---
+output: pdf_document
+---
+
+####**Analysis**
+
+Thus, we fit the four different regression models (Ridge, Lasso, Principal Component, and Partial Least Squares) to the Credit data set, in attempt to find a model which best predicts future Balances based on observable predictors, which will in turn inform future decisions. We also fit a standard multiple linear regression model over the data set in order to create a "control" of sorts to base our models upon. If they cannot outperform multiple regression, they aren't very good advanced models.
+
+We begin by running the ridge and lasso regressions on the data. To do this, we use the package glmnet.
+
+```{r include = FALSE, cache=FALSE}
+
+load(file = "../../data/models/OLS-outputs.RData")
+load(file = "../../data/models/ridge-outputs.RData")
+load(file = "../../data/models/lasso-outputs.RData")
+load(file = "../../data/models/pcr-outputs.RData")
+load(file = "../../data/models/pls-outputs.RData")
+
+require(xtable)
+
+```
+
+We begin by doing a basic 10-fold cross validation to make a set of ridge and lasso regression objects. Then, we find the 'best' lambda which minimizes the equations up above. We find that for the ridge regression, our minimizing lambda is `r I(ridge.final$lambda)`, and for our lasso regression, our minimizing lambda is `r I(lasso.final$lambda)`. We then use these lambda values to create finalized ridge and lasso regressions across the whole data set. 
+
+For the Principal Component and Partial Least Squares Regression models, we follow a similar procedure, but use the package pls.
+
+We again carry out a 10-fold cross validation to make a set of regression objects. This time, our "tuning parameter" is the number of components we desire to include in our regression models. This is determined by examining the minimum outputs of error over cross validation for each of the possible number of components (up to the number of predictors). For the analyses, we find that the best number of components is `r I(pcr.index)` for pcr and `r I(pls.index)` for pls. We will touch more on why these numbers are interesting later.
+
+Now, we have our 4 fitted models. Additionally, we have our standard multiple linear regression model as well to compare our results to. Let's see how our models do and what this tells us!
+
+
+

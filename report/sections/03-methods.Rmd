@@ -11,3 +11,5 @@ Dimension reduction methods means projecting the p predictors into a M-dimension
 
 For Principle Components regression is a technique reducing the dimension of a n × p data matrix X which  involves identifying linear combinations, or directions, that best represent the predictors X1,...,Xp. As for Partial Least square, it's a supervised alternative to PCR in that it attempts to
 find directions that help explain both the response and the predictors.
+
+

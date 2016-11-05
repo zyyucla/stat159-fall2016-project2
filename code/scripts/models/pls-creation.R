@@ -11,4 +11,4 @@ set.seed(6677)
 
 pls.cv =plsr(Balance~., data = data.train, validation ="CV")
 
-save(pcr.cv, file = "data/models/pls.RData")
+save(pls.cv, file = "data/models/pls.RData")

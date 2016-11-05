@@ -2,6 +2,8 @@
 
 all: eda regressions report
 
+rep = report/sections
+
 data:
 	curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv > data/Credit.csv
   
@@ -35,6 +37,9 @@ regressions:
 	make plsr
 
 report:
+	cat $(rep)/00-abstract.Rmd $(rep)/01-introduction.Rmd $(rep)/02-data.Rmd $(rep)/03-methods.Rmd $(rep)/04-analysis.Rmd $(rep)/05-results.Rmd $(rep)/06-conclusions.Rmd >> report/report.Rmd
+	cd report
+#	Rscript -e "library(rmarkdown); render('report.Rmd')"
 
 slides:
 

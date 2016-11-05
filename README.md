@@ -70,10 +70,10 @@ project
 
 
 ```
-_Code_: This directory contains all the R functions and R scripts to produce EDA and model output
-_Data_: This directory contains main data "Credit.csv" and all other associated data
-_Images_: This directory contains all data visualization files
-_Report_: This directory contains various file version of the reports and sections
+_Code_: This directory contains all the R functions and R scripts to produce EDA and model output  
+_Data_: This directory contains main data "Credit.csv" and all other associated data  
+_Images_: This directory contains all data visualization files  
+_Report_: This directory contains various file version of the reports and sections  
 
 ![Creative Common License](https://i.creativecommons.org/l/by/4.0/88x31.png)
 

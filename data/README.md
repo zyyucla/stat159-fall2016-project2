@@ -7,4 +7,6 @@ _Credit.csv_ is the original data set download from [here](http://www-bcf.usc.ed
 Likewise, _eda-output_qualitative_ contains summary statistics for all the qualitative variables in the credit dataset
  _correlation-matrix.RData_ is an R binary file containing the correlation matrix among all the variables
  
- _train-test-data.RData contains train and test dataset. **modesl** folder contains RData files for different models output
+ _train-test-data.RData contains train and test dataset. 
+ 
+ **models** folder contains RData files for the output of the different models.

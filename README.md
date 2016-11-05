@@ -75,6 +75,22 @@ _Data_: This directory contains main data "Credit.csv" and all other associated 
 _Images_: This directory contains all data visualization files  
 _Report_: This directory contains various file version of the reports and sections  
 
+The Makefile in this directory contains a number of phony macros which run different pieces of the data acquisition, cleaning, model fitting, analysis, and report. To run certain macros, simply type "make macrotitle" into the terminal. Here is a list of the phony macro titles:
+
+• all: runs the three main aspects of our project: Exploratory data analysis, Model creation, and Report compiling/rendering  
+• data: downloads the file Credit.csv to the folder data/    
+• eda: performs the exploratory data analysis  
+• ols: OLS regression  
+• ridge: Rdige Regression  
+• lasso: Lasso Regression  
+• pcr: Principal Components Regression  
+• plsr: Partial Least Squares Regression  
+• regressions: all five regressions    
+• report: concatenates the .Rmd report from the individual sections, and then render the report.pdf  
+• slides: generates the actual slides.html from our slides.Rmd  
+• session: generates session-info.txt  
+• clean: deletes the generated report files, both .Rmd and .pdf  
+
 ![Creative Common License](https://i.creativecommons.org/l/by/4.0/88x31.png)
 
 

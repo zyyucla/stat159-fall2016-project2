@@ -1,9 +1,12 @@
 
 #OLS - Multiple Linear Regression Model
 
+#change to just fit over all data?
+
 load("data/train-test-data.RData")
 
-attach(data.train)
+data <- read.csv("data/Scaled-credit.csv", header = TRUE)
+data <- data[,3:14]
 
 OLS <- lm(Balance~., data=data.train)
 OLS.summ <- summary(OLS)

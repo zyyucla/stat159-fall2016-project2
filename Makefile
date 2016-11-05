@@ -7,7 +7,7 @@ rep = report/sections
 data:
 	curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv > data/Credit.csv
   
-tests:
+#tests:
   
 ols:
 	Rscript code/scripts/models/OLS-creation.R
@@ -41,7 +41,7 @@ report:
 	cd report
 	Rscript -e "library(rmarkdown); render('report.Rmd')"
 
-slides:
+#slides:
 
 session:
 	bash session.sh

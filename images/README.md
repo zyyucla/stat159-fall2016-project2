@@ -1,6 +1,6 @@
  ## This folder contains all the visualization data file
  
- **models**: contains lasso and ridge vs lambda output image files
+ **models**: contains lasso and ridge vs lambda output plots, as well as principal component regression and partial least squares regression component error information plots
  
  Files titled with "barchart" are images frequency counts of quanlative variables; with "conditional-boxplot" are boxplots of each 
  qualtitative variable subject to "Balance" .

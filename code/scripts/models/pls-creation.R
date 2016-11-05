@@ -9,6 +9,8 @@ load("data/train-test-data.RData")
 attach(data.train)
 set.seed(6677)
 
-pls.cv =plsr(Balance~., data = data.train, validation ="CV")
+pls.cv =plsr(Balance~., data = data.train, intercept = TRUE, validation ="CV")
 
 save(pls.cv, file = "data/models/pls.RData")
+
+detach(data.train)

@@ -9,6 +9,8 @@ load("data/train-test-data.RData")
 attach(data.train)
 set.seed(25)
 
-pcr.cv =pcr(Balance~., data = data.train, validation ="CV")
+pcr.cv =pcr(Balance~., data = data.train, intercept = TRUE, validation ="CV")
 
 save(pcr.cv, file = "data/models/pcr.RData")
+
+detach(data.train)

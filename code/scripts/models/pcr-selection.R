@@ -24,10 +24,12 @@ pcr.mse <- mean((pcr.pred - data.test$Balance)^2)
 data <- read.csv("data/Scaled-credit.csv", header = TRUE)
 data <- data[,3:14]
 
-pcr.final <- pcr(data$Balance~., data = data, ncomp = pcr.index)
+pcr.final <- pcr(data$Balance~., data = data, intercept = TRUE, ncomp = pcr.index)
 
 
-pcr.coeffs <- as.matrix(pcr.final$coefficients[,,pcr.index])
+#pcr.coeffs <- as.matrix(pcr.final$coefficients[,,pcr.index])
+pcr.coeffs <- as.matrix(coef(pcr.final, ncomp = pcr.index, intercept = TRUE))
+
 
 save(pcr.mse, pcr.final, pcr.coeffs, pcr.index, file = "data/models/pcr-outputs.RData")
 

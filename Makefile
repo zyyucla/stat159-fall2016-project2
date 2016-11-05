@@ -7,7 +7,7 @@ rep = report/sections
 data:
 	curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv > data/Credit.csv
   
-tests:
+#tests:
   
 ols:
 	Rscript code/scripts/models/OLS-creation.R
@@ -40,6 +40,7 @@ report:
 	cat $(rep)/00-abstract.Rmd $(rep)/01-introduction.Rmd $(rep)/02-data.Rmd $(rep)/03-methods.Rmd $(rep)/04-analysis.Rmd $(rep)/05-results.Rmd $(rep)/06-conclusions.Rmd >> report/report.Rmd
 	cd report
 	Rscript -e "library(rmarkdown); render('report.Rmd')"
+
 
 slides:
 	Rscript -e "library(rmarkdown); render('slides.Rmd')"

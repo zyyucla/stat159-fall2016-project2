@@ -23,12 +23,16 @@ pcr:
 	Rscript code/scripts/models/pcr-selection.R
 
 plsr:
+	Rscript code/scripts/models/pls-creation.R
+	Rscript code/scripts/models/pls-selection.R
+
 
 regressions:
 	make ols
 	make ridge
 	make lasso
 	make pcr
+	make plsr
 
 report:
 

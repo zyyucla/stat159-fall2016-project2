@@ -24,7 +24,7 @@ pcr.mse <- mean((pcr.pred - data.test$Balance)^2)
 data <- read.csv("data/Scaled-credit.csv", header = TRUE)
 data <- data[,3:14]
 
-pcr.final <- pcr(data$Balance~., data = data, scale = FALSE, ncomp = 11)
+pcr.final <- pcr(data$Balance~., data = data, ncomp = pcr.index)
 
 pcr.coeffs <- as.matrix(pcr.final$coefficients[,,pcr.index])
 

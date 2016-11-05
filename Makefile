@@ -28,6 +28,7 @@ regressions:
 	make ols
 	make ridge
 	make lasso
+	make pcr
 
 report:
 

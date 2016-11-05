@@ -19,6 +19,8 @@ lasso:
 	Rscript code/scripts/models/lasso-selection.R
 
 pcr:
+	Rscript code/scripts/models/pcr-creation.R
+	Rscript code/scripts/models/pcr-selection.R
 
 plsr:
 

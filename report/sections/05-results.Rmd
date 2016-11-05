@@ -5,11 +5,11 @@ We have our 5 models. First, let's look at the coefficients our various models c
 
 ```{r include=FALSE, cache=FALSE}
 
-load(file = "../../data/models/OLS-outputs.RData")
-load(file = "../../data/models/ridge-outputs.RData")
-load(file = "../../data/models/lasso-outputs.RData")
-load(file = "../../data/models/pcr-outputs.RData")
-load(file = "../../data/models/pls-outputs.RData")
+load(file = "data/models/OLS-outputs.RData")
+load(file = "data/models/ridge-outputs.RData")
+load(file = "data/models/lasso-outputs.RData")
+load(file = "data/models/pcr-outputs.RData")
+load(file = "data/models/pls-outputs.RData")
 
 require(xtable)
 

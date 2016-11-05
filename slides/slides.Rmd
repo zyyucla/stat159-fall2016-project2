@@ -1,0 +1,62 @@
+---
+title: "Statistical Predictive Modeling Process - Slides"
+author: "Bret Hart and Yuyu Zhang"
+date: "November 4, 2016"
+output: ioslides_presentation
+---
+
+
+## Intro Slide
+
+Hi! Today, we'll be going over a basic fitting of different regression models to a set of data. In particular, we're examining and open-source dataset analyzed in the ISLR textbook. It's pretty nifty that a textbook would have its datasets open for anyone to download, so we're taking advantage of the resources they made available to us to compare our regression results to theirs!
+
+We fitted 5 basic different models to the data - A straightforward Multiple Linear Regression, A Ridge Regression, A Lasso Regression, a Principal Component Regression, and a Partial Least Squares Regression.
+
+## Data 
+
+But first, let's talk a bit about our actual data set. The **Credit** data set, as mentioned before, is a dataset discussed in ISLR that was made open-source so students could learn and interact with the same, real-world data that was being analyzed in the textbook. 
+
+So what's in the data, anyway? And what are we trying to do with it?
+
+## Response 
+
+We desire to build a model which can effectively predict someone's **Credit Balance** based upon easily observable demographic information. This is obviously useful for banks or employers to gain a sense of the financial security of their potential hires or financial investments. If we could accurately predict someone's Credit Balance from pretty simple information, this could hugely cut down on risk in decisions and give us a lot of confidence going forwards.
+
+##Predictors
+
+To flesh out our predictors a little more, they're mostly basic demographic info. We have:  
+Income  
+Credit Limit  
+Credit Rating  
+Credit Card number  
+Age  
+Education  
+Gender  
+Student Status
+Marital Status  
+and, Ethnicity.    
+
+We won't get into the specifics of their units or anything, as this is just to give you a basic sense of the simple sort of data we're working with, which could potentially predict a pretty big thing.
+
+
+
+
+##Methods 
+
+As stated previously, we fit 5 different regression models to the data set. To briefly discuss each, we'll skim over the actual formulas, but touch upon what each method attempts to do.
+
+Of course, we couldn't perform a regression procedure without fitting a basic multiple linear regression. Under a simple set of assumptions, that of the least-squares criterion, we are able to fit every predictor to a model which minimizes the distance of the response variable from its respective predictor values in a p-dimensional space.
+
+##Shrinkage
+
+Of course, not every predictor is of equivalent predictive power. And fitting all predictors should not be an assumed default. The Lasso and Ridge regressions serve to add a penalty for every additional predictor included in the model. Both are simple mathematical additions, not even adjustments, to the multiple linear regression formula, but can powerfully serve to change the coefficient values in a way that increases the strength of the model. Not all coefficients should have weight evaluated upon the same terms!
+
+##Dimension Reduction
+
+Another way of not treating all of the predictors the same way is to use methods of Dimension Reduction. Both Principal Component Regression and Partial Least Squares regression serve to 
+
+
+```{r, echo=FALSE}
+plot(cars)
+```
+

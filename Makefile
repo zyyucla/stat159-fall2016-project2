@@ -42,7 +42,8 @@ report:
 	Rscript -e "library(rmarkdown); render('report.Rmd')"
 
 slides:
-
+	Rscript -e "library(rmarkdown); render('slides.Rmd')"
+	
 session:
 	bash session.sh
 
